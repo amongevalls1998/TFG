@@ -1,0 +1,337 @@
+library(xlsx)
+library(stringr)
+#imp<-read.xlsx(file.choose(), sheetName = "Sheet1")
+imp<-read.xlsx("C:/Users/User/Desktop/TFG_ARI/FrecAfect_moderate.xlsx", sheetName = "Sheet1")
+columnas<-as.character(colnames(imp))
+#Variantes para AMP
+AMP_var<-data.frame()
+for (i in 1:length(AMP)){
+  numerocol<-which(columnas == paste(AMP[i],"_F",sep=""))
+  cat(numerocol, " ")
+  for (j in 1:dim(imp)[1]){
+    a<-str_match_all(imp[j,numerocol], "1")[[1]]
+    if(dim(a)[1]!=0){
+      AMP_var<- rbind(AMP_var,imp[j,])
+    }
+  }
+}
+recuentoAMP<-table(AMP_var$Gene_Name)
+unique(AMP_var$Gene_Name)
+length(unique(AMP_var$Gene_Name))
+#Variantes ELP
+ELP_var<-data.frame()
+for (i in 1:length(ELP)){
+  numerocol<-which(columnas == paste(ELP[i],"_F",sep=""))
+  cat(numerocol, " ")
+  for (j in 1:dim(imp)[1]){
+    a<-str_match_all(imp[j,numerocol], "1")[[1]]
+    if(dim(a)[1]!=0){
+      ELP_var<- rbind(ELP_var,imp[j,])
+    }
+  }
+}
+recuentoELP<-table(ELP_var$Gene_Name)
+length(unique(ELP_var$Gene_Name))
+unique(ELP_var$Gene_Name)
+#Variantes PBP
+PBP_var<-data.frame()
+for (i in 1:length(PBP)){
+  numerocol<-which(columnas == paste(PBP[i],"_F",sep=""))
+  cat(numerocol, " ")
+  for (j in 1:dim(imp)[1]){
+    a<-str_match_all(imp[j,numerocol], "1")[[1]]
+    if(dim(a)[1]!=0){
+      PBP_var<- rbind(PBP_var,imp[j,])
+    }
+  }
+}
+recuentoELP<-table(PBP_var$Gene_Name)
+length(unique(PBP_var$Gene_Name))
+unique(PBP_var$Gene_Name)
+#Variantes Espinal
+Espinal<- gsub("\n", "" ,Espinal)
+Espinal_var<-data.frame()
+for (i in 1:length(Espinal)){
+  numerocol<-which(columnas == paste(Espinal[i],"_F",sep=""))
+  cat(numerocol, " ")
+  for (j in 1:dim(imp)[1]){
+    a<-str_match_all(imp[j,numerocol], "1")[[1]]
+    if(dim(a)[1]!=0){
+      Espinal_var<- rbind(Espinal_var,imp[j,])
+    }
+  }
+}
+recuentoEspinal<-table(Espinal_var$Gene_Name)
+length(unique(Espinal_var$Gene_Name))
+unique(Espinal_var$Gene_Name)
+#Variantes Bulbar
+Bulbar_var<-data.frame()
+for (i in 1:length(Bulbar)){
+  numerocol<-which(columnas == paste(Bulbar[i],"_F",sep=""))
+  cat(numerocol, " ")
+  for (j in 1:dim(imp)[1]){
+    a<-str_match_all(imp[j,numerocol], "1")[[1]]
+    if(dim(a)[1]!=0){
+      Bulbar_var<- rbind(Bulbar_var,imp[j,])
+    }
+  }
+}
+recuentoBulbar<-table(Bulbar_var$Gene_Name)
+length(unique(Bulbar_var$Gene_Name))
+unique(Bulbar_var$Gene_Name)
+#Variantes Respiratorio
+Respiratorio_var<-data.frame()
+for (i in 1:length(Respiratorio)){
+  numerocol<-which(columnas == paste(Respiratorio[i],"_F",sep=""))
+  cat(numerocol, " ")
+  for (j in 1:dim(imp)[1]){
+    a<-str_match_all(imp[j,numerocol], "1")[[1]]
+    if(dim(a)[1]!=0){
+      Respiratorio_var<- rbind(Respiratorio_var,imp[j,])
+    }
+  }
+}
+recuentoRespiratorio<-table(Respiratorio_var$Gene_Name)
+length(unique(Respiratorio_var$Gene_Name))
+unique(Respiratorio_var$Gene_Name)
+#Variantes Monomielico
+Monomielico_var<-data.frame()
+for (i in 1:length(Monomielico)){
+  numerocol<-which(columnas == paste(Monomielico[i],"_F",sep=""))
+  cat(numerocol, " ")
+  for (j in 1:dim(imp)[1]){
+    a<-str_match_all(imp[j,numerocol], "1")[[1]]
+    if(dim(a)[1]!=0){
+      Monomielico_var<- rbind(Monomielico_var,imp[j,])
+    }
+  }
+}
+recuentoMonomielico<-table(Monomielico_var$Gene_Name)
+length(unique(Monomielico_var$Gene_Name))
+unique(Monomielico_var$Gene_Name)
+#Variantes amnesia
+amnesia_var<-data.frame()
+for (i in 1:length(amnesia)){
+  numerocol<-which(columnas == paste(amnesia[i],"_F",sep=""))
+  cat(numerocol, " ")
+  for (j in 1:dim(imp)[1]){
+    a<-str_match_all(imp[j,numerocol], "1")[[1]]
+    if(dim(a)[1]!=0){
+      amnesia_var<- rbind(amnesia_var,imp[j,])
+    }
+  }
+}
+recuentoamnesia<-table(amnesia_var$Gene_Name)
+length(unique(amnesia_var$Gene_Name))
+unique(amnesia_var$Gene_Name)
+#Variantes pseudopolineuritica
+pseudopolineuritica_var<-data.frame()
+for (i in 1:length(pseudopolineuritica)){
+  numerocol<-which(columnas == paste(pseudopolineuritica[i],"_F",sep=""))
+  cat(numerocol, " ")
+  for (j in 1:dim(imp)[1]){
+    a<-str_match_all(imp[j,numerocol], "1")[[1]]
+    if(dim(a)[1]!=0){
+      pseudopolineuritica_var<- rbind(pseudopolineuritica_var,imp[j,])
+    }
+  }
+}
+recuentopseudopolineuritica<-table(pseudopolineuritica_var$Gene_Name)
+length(unique(pseudopolineuritica_var$Gene_Name))
+unique(pseudopolineuritica_var$Gene_Name)
+#Variantes Flail_leg
+Flail_leg_var<-data.frame()
+for (i in 1:length(Flail_leg)){
+  numerocol<-which(columnas == paste(Flail_leg[i],"_F",sep=""))
+  cat(numerocol, " ")
+  for (j in 1:dim(imp)[1]){
+    a<-str_match_all(imp[j,numerocol], "1")[[1]]
+    if(dim(a)[1]!=0){
+      Flail_leg_var<- rbind(Flail_leg_var,imp[j,])
+    }
+  }
+}
+recuentoFlail_leg<-table(Flail_leg_var$Gene_Name)
+length(unique(Flail_leg_var$Gene_Name))
+unique(Flail_leg_var$Gene_Name)
+#Variantes Flail_Arm
+Flail_arm_var<-data.frame()
+for (i in 1:length(Flail_arm)){
+  numerocol<-which(columnas == paste(Flail_arm[i],"_F",sep=""))
+  cat(numerocol, " ")
+  for (j in 1:dim(imp)[1]){
+    a<-str_match_all(imp[j,numerocol], "1")[[1]]
+    if(dim(a)[1]!=0){
+      Flail_arm_var<- rbind(Flail_arm_var,imp[j,])
+    }
+  }
+}
+recuentoFlail_arm<-table(Flail_arm_var$Gene_Name)
+length(unique(Flail_arm_var$Gene_Name))
+unique(Flail_arm_var$Gene_Name)
+#Variantes Control
+Control_var<-data.frame()
+for (i in 1:length(Control)){
+  numerocol<-which(columnas == paste(Control[i],"_F",sep=""))
+  cat(numerocol, " ")
+  for (j in 1:dim(imp)[1]){
+    a<-str_match_all(imp[j,numerocol], "1")[[1]]
+    if(dim(a)[1]!=0){
+      Control_var<- rbind(Control_var,imp[j,])
+    }
+  }
+}
+recuentoControl<-table(Control_var$Gene_Name)
+length(unique(Control_var$Gene_Name))
+unique(Control_var$Gene_Name)
+#Variantes Otro
+Otro_var<-data.frame()
+for (i in 1:length(Otro)){
+  numerocol<-which(columnas == paste(Otro[i],"_F",sep=""))
+  cat(numerocol, " ")
+  for (j in 1:dim(imp)[1]){
+    a<-str_match_all(imp[j,numerocol], "1")[[1]]
+    if(dim(a)[1]!=0){
+      Otro_var<- rbind(Otro_var,imp[j,])
+    }
+  }
+}
+recuentoOtro<-table(Otro_var$Gene_Name)
+length(unique(Otro_var$Gene_Name))
+unique(Otro_var$Gene_Name)
+#Variantes Hemiplejica_Mills_
+Hemiplejica_Mills__var<-data.frame()
+for (i in 1:length(Otro)){
+  numerocol<-which(columnas == paste(Hemiplejica_Mills_[i],"_F",sep=""))
+  cat(numerocol, " ")
+  for (j in 1:dim(imp)[1]){
+    a<-str_match_all(imp[j,numerocol], "1")[[1]]
+    if(dim(a)[1]!=0){
+      Hemiplejica_Mills__var<- rbind(Hemiplejica_Mills__var,imp[j,])
+    }
+  }
+}
+recuentoHemiplejica_Mills_<-table(Hemiplejica_Mills__var$Gene_Name)
+length(unique(Hemiplejica_Mills__var$Gene_Name))
+unique(Hemiplejica_Mills__var$Gene_Name)
+#Variantes Paralisis_bulbar_progresiva
+Paralisis_bulbar_progresiva_var<-data.frame()
+for (i in 1:length(Paralisis_bulbar_progresiva)){
+  numerocol<-which(columnas == paste(Paralisis_bulbar_progresiva[i],"_F",sep=""))
+  cat(numerocol, " ")
+  for (j in 1:dim(imp)[1]){
+    a<-str_match_all(imp[j,numerocol], "1")[[1]]
+    if(dim(a)[1]!=0){
+      Paralisis_bulbar_progresiva_var<- rbind(Paralisis_bulbar_progresiva_var,imp[j,])
+    }
+  }
+}
+recuentoParalisis_bulbar_progresiva<-table(Paralisis_bulbar_progresiva_var$Gene_Name)
+length(unique(Paralisis_bulbar_progresiva_var$Gene_Name))
+unique(Paralisis_bulbar_progresiva_var$Gene_Name)
+
+#Graficos sintoma-variantes-genes
+library(ggplot2)
+nvar<-table(Espinal_var$Gene_Name)
+ggplot()+
+  geom_col(aes(y=nvar, x=names(nvar)), fill= "deepskyblue4")+
+  scale_y_continuous(limit=c(0,60), breaks= seq(0,60,10))+
+  theme(axis.text.x = element_text(angle = 90, size=7))+
+  labs(x= "Genes", y= "Número de Variantes")+
+  ggtitle("Genes in Spinal symptom")
+
+nvar<-table(ELP_var$Gene_Name)
+ggplot()+
+  geom_col(aes(y=nvar, x=names(nvar)), fill= "deepskyblue4")+
+  scale_y_continuous(limit=c(0,60), breaks= seq(0,60,10))+
+  theme(axis.text.x = element_text(angle = 90, size=7))+
+  labs(x= "Genes", y= "Número de Variantes")+
+  ggtitle("Genes in ELP symptom")
+
+nvar<-table(Monomielico_var$Gene_Name)
+ggplot()+
+  geom_col(aes(y=nvar, x=names(nvar)), fill= "deepskyblue4")+
+  scale_y_continuous(limit=c(0,60), breaks= seq(0,60,10))+
+  theme(axis.text.x = element_text(angle = 90, size=7))+
+  labs(x= "Genes", y= "Número de Variantes")+
+  ggtitle("Genes in Monomielico symptom")
+
+nvar<-table(AMP_var$Gene_Name)
+ggplot()+
+  geom_col(aes(y=nvar, x=names(nvar)), fill= "deepskyblue4")+
+  scale_y_continuous(limit=c(0,60), breaks= seq(0,60,10))+
+  theme(axis.text.x = element_text(angle = 90, size=7))+
+  labs(x= "Genes", y= "Número de Variantes")+
+  ggtitle("Genes in AMP symptom")
+
+nvar<-table(Bulbar_var$Gene_Name)
+ggplot()+
+  geom_col(aes(y=nvar, x=names(nvar)), fill= "deepskyblue4")+
+  scale_y_continuous(limit=c(0,60), breaks= seq(0,60,10))+
+  theme(axis.text.x = element_text(angle = 90, size=7))+
+  labs(x= "Genes", y= "Número de Variantes")+
+  ggtitle("Genes in Bulbar symptom")
+
+nvar<-table(Respiratorio_var$Gene_Name)
+ggplot()+
+  geom_col(aes(y=nvar, x=names(nvar)), fill= "deepskyblue4")+
+  scale_y_continuous(limit=c(0,60), breaks= seq(0,60,10))+
+  theme(axis.text.x = element_text(angle = 90, size=7))+
+  labs(x= "Genes", y= "Número de Variantes")+
+  ggtitle("Genes in Respiratory symptom")
+
+nvar<-table(Control_var$Gene_Name)
+ggplot()+
+  geom_col(aes(y=nvar, x=names(nvar)), fill= "deepskyblue4")+
+  scale_y_continuous(limit=c(0,60), breaks= seq(0,60,10))+
+  theme(axis.text.x = element_text(angle = 90, size=7))+
+  labs(x= "Genes", y= "Número de Variantes")+
+  ggtitle("Genes in Control symptom")
+
+nvar<-table(Otro_var$Gene_Name)
+ggplot()+
+  geom_col(aes(y=nvar, x=names(nvar)), fill= "deepskyblue4")+
+  scale_y_continuous(limit=c(0,60), breaks= seq(0,60,10))+
+  theme(axis.text.x = element_text(angle = 90, size=7))+
+  labs(x= "Genes", y= "Número de Variantes")+
+  ggtitle("Genes in Otro symptom")
+
+nvar<-table(PBP_var$Gene_Name)
+ggplot()+
+  geom_col(aes(y=nvar, x=names(nvar)), fill= "deepskyblue4")+
+  scale_y_continuous(limit=c(0,60), breaks= seq(0,60,10))+
+  theme(axis.text.x = element_text(angle = 90, size=7))+
+  labs(x= "Genes", y= "Número de Variantes")+
+  ggtitle("Genes in PBP symptom")
+
+nvar<-table(amnesia_var$Gene_Name)
+ggplot()+
+  geom_col(aes(y=nvar, x=names(nvar)), fill= "deepskyblue4")+
+  scale_y_continuous(limit=c(0,60), breaks= seq(0,60,10))+
+  theme(axis.text.x = element_text(angle = 90, size=7))+
+  labs(x= "Genes", y= "Número de Variantes")+
+  ggtitle("Genes in amnesia symptom")
+
+nvar<-table(Flail_leg_var$Gene_Name)
+ggplot()+
+  geom_col(aes(y=nvar, x=names(nvar)), fill= "deepskyblue4")+
+  scale_y_continuous(limit=c(0,60), breaks= seq(0,60,10))+
+  theme(axis.text.x = element_text(angle = 90, size=7))+
+  labs(x= "Genes", y= "Número de Variantes")+
+  ggtitle("Genes in Flail_leg symptom")
+
+nvar<-table(Flail_arm_var$Gene_Name)
+ggplot()+
+  geom_col(aes(y=nvar, x=names(nvar)), fill= "deepskyblue4")+
+  scale_y_continuous(limit=c(0,60), breaks= seq(0,60,10))+
+  theme(axis.text.x = element_text(angle = 90, size=7))+
+  labs(x= "Genes", y= "Número de Variantes")+
+  ggtitle("Genes in Flail_arm symptom")
+
+#Para hacer que todos tengas los 44 genes
+nvar<-table(Espinal_var$Gene_Name)
+amv<-read.table(header=TRUE,text="
+AGT EFEMP1 DCTN1 ALS2 ARHGEF28 SEMA3A OPTN KIF5A DYNC1H1
+0 0 0 0 0 0 0 0 0
+")
+Tabla<-data.frame(names(nvar), imp)#no me funciona
